@@ -1,0 +1,16 @@
+name: 'actions-get-pr-by-label'
+description: 'This action will get open PRs and filter them, then merge into current checkout'
+inputs:
+  github-token:
+    description: 'Github Token'
+    required: true
+  open-pr-label:  # id of input
+    description: 'Label of PR to filter'
+    required: false
+    default: 'Ready for QA Review'
+outputs:
+  octopus-merge-string: # id of output
+    description: 'The string of branches that will be used for merging'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
